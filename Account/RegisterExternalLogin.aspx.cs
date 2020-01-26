@@ -51,7 +51,7 @@ namespace ApiOAuth.Account
                 {
                     signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
                     var state = Request.Params["state"];
-                    IdentityHelper.RedirectToReturnUrl(string.Format("http://work.dendis.com:{0}/Account/RegisterExternalLogin?providerName={1}", state, Request.Params["providerName"]), Response);
+                    IdentityHelper.RedirectToReturnUrl(string.Format("http://mlw.dendis.com:{0}/Account/RegisterExternalLogin?providerName={1}", state, Request.Params["providerName"]), Response);
                 }
                 else if (User.Identity.IsAuthenticated)
                 {

@@ -28,10 +28,10 @@ namespace ApiOAuth
             // Configure the sign in cookie
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
-              // CookieSameSite = SameSiteMode.Strict,
+                CookieSameSite = SameSiteMode.Lax,
                 CookieName = "dendis.SharedCookie",
-                CookieDomain = ".dendis.com",
-                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+                CookieDomain = "dendis.com",
+                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
                 LoginPath = new PathString("/Account/Login"),
                 Provider = new CookieAuthenticationProvider
                 {
