@@ -29,8 +29,8 @@ namespace ApiOAuth
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 CookieSameSite = SameSiteMode.Lax,
-                CookieName = "dendis.SharedCookie",
-                CookieDomain = "dendis.com",
+                CookieName = "mls.SharedCookie",
+                CookieDomain = "mls.com",
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
                 LoginPath = new PathString("/Account/Login"),
                 Provider = new CookieAuthenticationProvider

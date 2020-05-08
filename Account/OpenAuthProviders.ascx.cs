@@ -15,14 +15,14 @@ namespace ApiOAuth.Account
             if (!IsPostBack)
             {
                 var provider = Request.Params["provider"];
-                var state = Request.Params["code"];
-                Session["state"] = Request.Params["code"];
+                Session["districtName"] = Request.Params["districtName"];
+                var districtName = Request.Params["districtName"];
                 if (provider == null)
                 {
                     return;
                 }
                 // Request a redirect to the external login provider
-                string redirectUrl = ResolveUrl(String.Format(CultureInfo.InvariantCulture, "~/Account/RegisterExternalLogin?{0}={1}&returnUrl={2}&state={3}", IdentityHelper.ProviderNameKey, provider, ReturnUrl, state));
+                string redirectUrl = ResolveUrl(String.Format(CultureInfo.InvariantCulture, "~/Account/RegisterExternalLogin?{0}={1}&returnUrl={2}&districtName={3}", IdentityHelper.ProviderNameKey, provider, ReturnUrl, districtName));
                 var properties = new AuthenticationProperties() { RedirectUri = redirectUrl };
                 // Add xsrf verification when linking accounts
                 if (Context.User.Identity.IsAuthenticated)

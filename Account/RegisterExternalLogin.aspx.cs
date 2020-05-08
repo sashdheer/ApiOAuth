@@ -36,6 +36,8 @@ namespace ApiOAuth.Account
                 RedirectOnFail();
                 return;
             }
+
+            var districtName = Request.Params["districtName"];
             if (!IsPostBack)
             {
                 var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
@@ -52,7 +54,8 @@ namespace ApiOAuth.Account
                 if (user != null)
                 {
                     signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
-                    IdentityHelper.RedirectToReturnUrl(string.Format("http://mlw.dendis.com:{0}/Account/RegisterExternalLogin?providerName={1}", state, Request.Params["providerName"]), Response);
+                    //  IdentityHelper.RedirectToReturnUrl($"http://{districtName}.mls.com/Account/RegisterExternalLogin?providerName={Request.Params["providerName"]}", Response);
+                    IdentityHelper.RedirectToReturnUrl($"http://{districtName}.mls.com", Response);
                 }
                 else if (User.Identity.IsAuthenticated)
                 {
@@ -78,7 +81,6 @@ namespace ApiOAuth.Account
                 else
                 {
                      email.Text = loginInfo.Email;
-                    //Response.Redirect($"http://mlw.dendis.com:{state}");
                 }
             }
         }        
@@ -116,7 +118,7 @@ namespace ApiOAuth.Account
                     // Send this link via email: IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id)
 
                     //IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
-                    IdentityHelper.RedirectToReturnUrl($"http://mlw.dendis.com:{Request.Params["state"]}", Response);
+                    IdentityHelper.RedirectToReturnUrl($"http://{Request.Params["districtName"]}.mls.com", Response);
                     return;
                 }
             }
