@@ -7,20 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ApiOAuth.Account
-{
-
-
-    public partial class Login
-    {
-
-        /// <summary>
-        /// OpenAuthLogin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::ApiOAuth.Account.OpenAuthProviders OpenAuthLogin;
+namespace ApiOAuth.Account {
+    
+    
+    public partial class Login {
     }
 }

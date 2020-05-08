@@ -41,6 +41,8 @@ namespace ApiOAuth.Account
                 var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
                 var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
                 var loginInfo = Context.GetOwinContext().Authentication.GetExternalLoginInfo();
+                var state = Request.Params["state"];
+
                 if (loginInfo == null)
                 {
                     RedirectOnFail();
@@ -50,7 +52,6 @@ namespace ApiOAuth.Account
                 if (user != null)
                 {
                     signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
-                    var state = Request.Params["state"];
                     IdentityHelper.RedirectToReturnUrl(string.Format("http://mlw.dendis.com:{0}/Account/RegisterExternalLogin?providerName={1}", state, Request.Params["providerName"]), Response);
                 }
                 else if (User.Identity.IsAuthenticated)
@@ -76,7 +77,8 @@ namespace ApiOAuth.Account
                 }
                 else
                 {
-                    email.Text = loginInfo.Email;
+                     email.Text = loginInfo.Email;
+                    //Response.Redirect($"http://mlw.dendis.com:{state}");
                 }
             }
         }        
@@ -113,7 +115,8 @@ namespace ApiOAuth.Account
                     // var code = manager.GenerateEmailConfirmationToken(user.Id);
                     // Send this link via email: IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id)
 
-                    IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                    //IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                    IdentityHelper.RedirectToReturnUrl($"http://mlw.dendis.com:{Request.Params["state"]}", Response);
                     return;
                 }
             }

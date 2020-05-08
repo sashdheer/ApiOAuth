@@ -53,22 +53,30 @@ namespace ApiOAuth
             app.UseTwoFactorRememberBrowserCookie(DefaultAuthenticationTypes.TwoFactorRememberBrowserCookie);
 
             // Uncomment the following lines to enable logging in with third party login providers
-            //app.UseMicrosoftAccountAuthentication(
-            //    clientId: "",
-            //    clientSecret: "");
 
-            //app.UseTwitterAuthentication(
-            //   consumerKey: "",
-            //   consumerSecret: "");
+         //   app.UseLinkedInAuthentication(
+         //     clientId: "77zv4547le3lhj",
+        //      clientSecret: "J6iKzPS46jHfQumb");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseMicrosoftAccountAuthentication(
+                clientId: "1df8ee8a-84ce-4f9e-a28e-a2f9eb3310a1",
+                clientSecret: "Ze/AC@d0RY4D-knrTuFCjC9]sylBreH0"
+                 );
+
+            app.UseTwitterAuthentication(
+               consumerKey: "YzwLOdcToHPdRnkvIPImTkf8F",
+               consumerSecret: "pa1DZfovc3TbjPFSTAD6iOH2sXISlpTZpqlBUoxIEK9cB1QrSs");
+
+            app.UseFacebookAuthentication(
+               appId: "2585385571681255",
+               appSecret: "5b124a8620c9dcf79b1c40968241e76c");
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
-                ClientId = "600241086206-c955o0fmt4je554425unb77kes68al68.apps.googleusercontent.com",
-                ClientSecret = "Tpl9135L7w42mZui7dxvBuBJ"
+               // ClientId = "600241086206-c955o0fmt4je554425unb77kes68al68.apps.googleusercontent.com",
+               // ClientSecret = "Tpl9135L7w42mZui7dxvBuBJ"
+               ClientId = "470149037738-p4e2p1m7f211795nibm4b7mks3cqsv4s.apps.googleusercontent.com",
+               ClientSecret = "G7kAN0NG8WM7ZiOvRieNLYX9"
             });
         }
     }

@@ -13,7 +13,7 @@
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
+    <meta name="google-site-verification" content="cGkrlSWjaaz_Hh6jDxCgoV_5Aipf6kQ4_Oe7JYW5FHw" />
 </head>
 <body>
     <form runat="server">

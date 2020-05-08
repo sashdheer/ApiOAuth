@@ -495,7 +495,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>59320</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://work.dendis.com:59320/</IISUrl>
+          <IISUrl>http://work.dendis.com:80/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
